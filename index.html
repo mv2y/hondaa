@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>قطع غيار هوندا</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="honda-logo-container">
+            <img src="honda-logo.png" alt="شعار هوندا" class="honda-logo">
+        </div>
+        <h1>قطع غيار هوندا</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">معلومات عنا</a></li>
+                <li><a href="#products">المنتجات</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>معلومات عنا</h2>
+        <p>نحن نقدم أفضل قطع غيار هوندا بأسعار تنافسية وجودة عالية. اتصل بنا اليوم للحصول على المزيد من المعلومات!</p>
+    </section>
+
+    <section id="products">
+        <h2>المنتجات</h2>
+        <div class="product">
+            <h3><a href="parts/engine-part.html">قطع غيار المحرك</a></h3>
+            <p>أفضل قطع غيار لمحركات هوندا.</p>
+        </div>
+        <div class="product">
+            <h3><a href="parts/body-part.html">قطع غيار الهيكل</a></h3>
+            <p>أفضل قطع غيار لهياكل هوندا.</p>
+        </div>
+        <div class="product">
+            <h3><a href="parts/brake-part.html">قطع غيار الفرامل</a></h3>
+            <p>أفضل قطع غيار لفرامل هوندا.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>اتصل بنا</h2>
+        <p>للتواصل معنا، يرجى الاتصال على الرقم: <strong>+966 566901733</strong></p>
+    </section>
+    <script>
+        // تأثير الخلفية المتحركة
+        let colors = ['#004d00', '#009900', '#00b300', '#00cc00'];
+        let index = 0;
+    
+        function changeBackground() {
+            document.body.style.backgroundColor = colors[index];
+            index = (index + 1) % colors.length;
+        }
+    
+        setInterval(changeBackground, 5000); // تغيير اللون كل 5 ثواني
+     
+    // تأثيرات fade-in عند تحميل الصفحة
+    window.onload = function() {
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, index) => {
+            section.style.opacity = 0; // اجعلها غير مرئية في البداية
+            section.style.transition = 'opacity 0.5s ease-in-out'; // تأثير الانتقال
+            setTimeout(() => {
+                section.style.opacity = 1; // اجعلها مرئية بعد وقت معين
+            }, index * 300); // التأخير بناءً على الفهرس
+        });
+    };
+   
+    // تأثيرات fade-in عند تحميل الصفحة
+    window.onload = function() {
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, index) => {
+            section.style.opacity = 0;
+            section.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                section.style.opacity = 1;
+            }, index * 300);
+        });
+    };
+
+    // تأثيرات عند التمرير
+    window.addEventListener('scroll', () => {
+        const products = document.querySelectorAll('.product');
+        products.forEach(product => {
+            const productPosition = product.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2; // نقطة التفاعل
+
+            if (productPosition < screenPosition) {
+                product.classList.add('visible');
+            } else {
+                product.classList.remove('visible');
+            }
+        });
+    });
+   // مؤشر التحميل
+   document.addEventListener("DOMContentLoaded", function() {
+        const loader = document.createElement('div');
+        loader.className = 'loader';
+        document.body.appendChild(loader);
+
+        window.onload = function() {
+            loader.style.display = 'none'; // إخفاء مؤشر التحميل عند الانتهاء من التحميل
+        };
+    });
+</script>
+
+    
+
+    <footer>
+        <p>&copy; 2024 قطع غيار هوندا. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        function contactUs() {
+            alert("للتواصل معنا، يرجى الاتصال على الرقم: +966 566901733");
+        }
+    </script>
+</body>
+</html>

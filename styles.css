@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* منع التمرير الأفقي */
+}
+
+header {
+    background: linear-gradient(to right, #004d00, #009900); /* تدرج أخضر */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.honda-logo-container {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    animation: moveLogo 5s linear infinite;
+}
+
+.honda-logo {
+    width: 150px;
+    transition: transform 0.3s; /* تأثير انتقال عند التمرير */
+}
+
+.honda-logo:hover {
+    transform: scale(1.1); /* تكبير الشعار عند التمرير */
+}
+
+@keyframes moveLogo {
+    0% {
+        transform: translateX(100%);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+nav ul li a:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.4s;
+}
+
+nav ul li a:hover:after {
+    width: 100%; /* تأثير عند تمرير الماوس */
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+section:hover {
+    transform: translateY(-5px); /* تأثير رفع عند التمرير */
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05); /* تكبير عند تمرير الماوس */
+}
+
+button {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #218838;
+    transform: translateY(-2px); /* رفع بسيط عند التمرير */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+}
+section {
+    opacity: 0; /* البداية غير مرئية */
+    transform: translateY(20px); /* الانتقال لأسفل */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* تأثير الانتقال */
+}
+
+section.visible {
+    opacity: 1; /* تظهر عند التحميل */
+    transform: translateY(0); /* الانتقال للمكان الأصلي */
+}
+.product {
+    opacity: 0; /* اجعلها غير مرئية في البداية */
+    transform: translateY(50px); /* ارفعها قليلاً */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* تأثير الانتقال */
+}
+
+.product.visible {
+    opacity: 1; /* اجعلها مرئية */
+    transform: translateY(0); /* ارجعها لمكانها الأصلي */
+}
